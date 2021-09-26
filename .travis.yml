@@ -22,13 +22,15 @@ after_success:
   - docker push kaustav1808/multicontainer_worker
 
 deploy:
+  edge: true
   provider: elasticbeanstalk
-  region: ap-south-1
-  app: multi-container
-  env: Multicontainer-env
-  bucket_name: elasticbeanstalk-ap-south-1-037966023887
-  bucket_path: multicontainer
+  region: "ap-south-1"
+  app: "multi-container"
+  env: "Multicontainer-env"
+  bucket_name: "elasticbeanstalk-ap-south-1-037966023887"
+  bucket_path: "multicontainer"
   on:
     branch: main
   access_key_id: $AWS_ACCESS_KEY
   secret_access_key: $AWS_SECRET_KEY
+  skip_cleanup: true
